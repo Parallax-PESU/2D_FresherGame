@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://ihycbmifex44"]
+
+[ext_resource type="Texture2D" uid="uid://dkkwidsec7rsp" path="res://icon.svg" id="1_2r8d2"]
+[ext_resource type="Script" path="res://Scripts/Movement.gd" id="1_bd8ru"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6cfn5"]
+size = Vector2(131, 126)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7ry6"]
+size = Vector2(1153, 103)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(583, 372)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_bd8ru")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(1, 33)
+texture = ExtResource("1_2r8d2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+visible = false
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_6cfn5")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-6.5, 226.5)
+shape = SubResource("RectangleShape2D_s7ry6")
+one_way_collision = true
+
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
+script = ExtResource("1_bd8ru")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D2"]
+position = Vector2(260, 112)
+texture = ExtResource("1_2r8d2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
+visible = false
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_6cfn5")
+one_way_collision = true

@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://ihycbmifex44"]
+
+[ext_resource type="Script" path="res://Scripts/Scene_manager.gd" id="1_xjk0v"]
+[ext_resource type="Script" path="res://Scripts/Timer.gd" id="2_m38uj"]
+[ext_resource type="PackedScene" uid="uid://dqqxgd6dck63n" path="res://Prefabs/player_node.tscn" id="3_otbsk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5djpj"]
+size = Vector2(1161, 52)
+
+[node name="Scene" type="Node2D"]
+position = Vector2(583, 372)
+script = ExtResource("1_xjk0v")
+
+[node name="Timer Box" type="TextEdit" parent="."]
+offset_left = -137.0
+offset_top = -370.0
+offset_right = 119.0
+offset_bottom = -296.0
+editable = false
+script = ExtResource("2_m38uj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-7.5, 279)
+shape = SubResource("RectangleShape2D_5djpj")
+
+[node name="Spawn Locations" type="Node2D" parent="."]
+
+[node name="0" type="Node2D" parent="Spawn Locations"]
+position = Vector2(-543, 230)
+
+[node name="1" type="Node2D" parent="Spawn Locations"]
+position = Vector2(518, 230)
+
+[node name="Player node" parent="." instance=ExtResource("3_otbsk")]
+position = Vector2(1, 0)
