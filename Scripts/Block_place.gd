@@ -1,5 +1,9 @@
 extends Node2D
 
+
+#This code is not being used anymore
+
+
 @onready var img=preload("res://icon.svg")
 @onready var player=$CharacterBody2D
 

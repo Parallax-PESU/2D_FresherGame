@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Proj 1"
-run/main_scene="res://character_body_3d.tscn"
+run/main_scene="res://Scenes/Multiplayer2.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://Scripts/GameManager.gd"
 
 [input]
 

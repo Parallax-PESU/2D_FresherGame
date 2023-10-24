@@ -1,26 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqqxgd6dck63n"]
+[gd_scene load_steps=6 format=3 uid="uid://dqqxgd6dck63n"]
 
-[ext_resource type="Script" path="res://Scripts/Movement.gd" id="1_3n8cx"]
-[ext_resource type="Script" path="res://Scripts/Block_Place.gd" id="1_36wro"]
+[ext_resource type="Script" path="res://Scripts/Movement_and_Block_Placement.gd" id="1_0c5ka"]
 [ext_resource type="Texture2D" uid="uid://dkkwidsec7rsp" path="res://icon.svg" id="2_j8xpp"]
 [ext_resource type="Script" path="res://Scripts/Damage_Control.gd" id="3_hrpiw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6cfn5"]
 size = Vector2(128.5, 128)
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_q1p0v"]
-properties/0/path = NodePath(".:position")
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_dntbh"]
+properties/0/path = NodePath("CharacterBody2D:position")
 properties/0/spawn = true
 properties/0/sync = true
 properties/0/watch = false
 
 [node name="Player node" type="Node2D"]
 position = Vector2(584, 374)
-script = ExtResource("1_36wro")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(0, 1)
-script = ExtResource("1_3n8cx")
+script = ExtResource("1_0c5ka")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 modulate = Color(0.580392, 0.631373, 0, 1)
@@ -35,10 +33,10 @@ shape = SubResource("RectangleShape2D_6cfn5")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 modulate = Color(0.211765, 0.992157, 0.211765, 1)
-offset_left = -581.0
-offset_top = -369.0
-offset_right = -188.0
-offset_bottom = -293.0
+offset_left = -84.0
+offset_top = -405.0
+offset_right = 309.0
+offset_bottom = -329.0
 show_percentage = false
 script = ExtResource("3_hrpiw")
 metadata/_edit_use_anchors_ = true
@@ -49,6 +47,6 @@ wait_time = 2.0
 one_shot = true
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
-replication_config = SubResource("SceneReplicationConfig_q1p0v")
+replication_config = SubResource("SceneReplicationConfig_dntbh")
 
 [connection signal="timeout" from="HealthBar/Timer" to="HealthBar" method="_on_timer_timeout"]
